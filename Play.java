@@ -14,15 +14,17 @@ public class Play {
         return EventRandomNumber;
     }
 
-    public static void RandomEvent(int EventRandomNumber){
+    public static void RandomEvent(int EventRandomNumber, Scanner scanner){
         if (EventRandomNumber == 2){        
-            CombatSystem.Combat();
+            CombatSystem.Combat(scanner);
         } else if (EventRandomNumber == 1){
             System.out.println("Something isn't normal, you don't feel safe in this room");
         } else if (EventRandomNumber == 0){
             System.out.println("This room is empty- ohhh a coin~~~");
         } 
     }
+    
+    
 
     public static void play() {
         Scanner scanner = new Scanner(System.in);
@@ -31,7 +33,7 @@ public class Play {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    RandomEvent(setRandomEventNumber());
+                    RandomEvent(setRandomEventNumber(), scanner);
                     Main.Wait(500);
                     break;
                 case 2:

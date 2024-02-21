@@ -85,4 +85,34 @@ public class Character {
         Main.Wait(500);
         System.out.println();
     }
+
+    public static int getDMGClassDnD(){
+        switch(CharDnDclass){
+            case "Barbarian":
+                CharDMG = CombatSystem.D12();
+            case "Bard":
+                CharDMG = CombatSystem.D8();
+            case "Cleric":
+                CharDMG = CombatSystem.D8();
+            case "Druid":
+                CharDMG = CombatSystem.D6();
+            case "Fighter":
+                CharDMG = CombatSystem.D10();
+            case "Monk":
+                CharDMG = CombatSystem.D6();
+            case "Paladin":
+                CharDMG = CombatSystem.D6() + CombatSystem.D6();
+            case "Ranger":
+                CharDMG = CombatSystem.D6();
+            case "Rogue":
+                CharDMG = CombatSystem.D8();
+            case "Sorcerer":
+                CharDMG = CombatSystem.D8();
+            case "Warlock":
+                CharDMG = CombatSystem.D6();
+            case "Wizard":
+                CharDMG = CombatSystem.D8();  
+        }
+        return CharDMG;
+    }
 }

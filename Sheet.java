@@ -21,6 +21,7 @@ public class Sheet {
     private static String HPCombatChar;
     private static String CACombatEnemy;
     private static String CACombatChar;
+    private static String SheetEnemyName;
 
     public static String formatStringWithSpaces(String input, int targetLength) {
         int spaceToAdd = targetLength - input.length();
@@ -52,33 +53,33 @@ public class Sheet {
     }    
 
     public static void setStrength(){
-        SheetStrength = String.format("%-7s", Character.Charisma);
-        SheetModifStrength = String.format("%-7s", Character.ModifierCharisma);
+        SheetStrength = String.format("%-4s", Character.Charisma);
+        SheetModifStrength = String.format("%-4s", Character.ModifierCharisma);
     }
 
     public static void setDexterity(){
-        SheetDexterity = String.format("%-7s", Character.Charisma);
-        SheetModifDexterity = String.format("%-7s", Character.ModifierCharisma);
+        SheetDexterity = String.format("%-4s", Character.Charisma);
+        SheetModifDexterity = String.format("%-4s", Character.ModifierCharisma);
     }
     
     public static void setConstitution(){
-        SheetConstitution = String.format("%-7s", Character.Charisma);
-        SheetModifConstitution = String.format("%-7s", Character.ModifierCharisma);
+        SheetConstitution = String.format("%-4s", Character.Charisma);
+        SheetModifConstitution = String.format("%-4s", Character.ModifierCharisma);
     }
 
     public static void setIntelligence(){
-        SheetIntelligence = String.format("%-7s", Character.Charisma);
-        SheetModifIntelligence = String.format("%-7s", Character.ModifierCharisma);
+        SheetIntelligence = String.format("%-4s", Character.Charisma);
+        SheetModifIntelligence = String.format("%-4s", Character.ModifierCharisma);
     }
 
     public static void setWisdom(){
-        SheetWisdom = String.format("%-7s", Character.Charisma);
-        SheetModifWisdom = String.format("%-7s", Character.ModifierCharisma);
+        SheetWisdom = String.format("%-4s", Character.Charisma);
+        SheetModifWisdom = String.format("%-4s", Character.ModifierCharisma);
     }
 
     public static void setCharisma(){
-        SheetCharisma = String.format("%-7s", Character.Charisma);
-        SheetModifCharisma = String.format("%-7s", Character.ModifierCharisma);
+        SheetCharisma = String.format("%-4s", Character.Charisma);
+        SheetModifCharisma = String.format("%-4s", Character.ModifierCharisma);
     }
 
     public static void setCombatHP(){
@@ -94,6 +95,17 @@ public class Sheet {
     public static void setWeapon(){
         
     }
+
+    public static void setEnemyName(){
+        SheetEnemyName = Enemy.EnemyName;
+        int length = 71;
+        int space = (length - SheetEnemyName.length()) / 2;
+        String spaces = " ".repeat(space);
+        SheetEnemyName = spaces + SheetEnemyName + spaces;
+    }
+    
+    
+    
 
     public static void setDataSheet(){
         setCharacterName();
@@ -159,7 +171,7 @@ public class Sheet {
 
     public static void CombatSheet(){
         System.out.println("|================================================================|Combat Sheet|=================================================================|\n" + //
-                "|                                  You                                  |                                 Enemy                                 |\n" + //
+                "|                                  You                                  |" + SheetEnemyName + "|\n" + //
                 "|               HP                                     " + HPCombatChar + "|               HP                                     " + HPCombatEnemy + "|\n" + //
                 "|               AC                                     " + CACombatChar + "|               AC                                     " + CACombatEnemy + "|\n" + //
                 "|             WEAPON                                 WEAPON             |             WEAPON                                 WEAPON             |\n" + //

@@ -57,38 +57,72 @@ public class CombatSystem{
 
     public static void Attack(Enemy enemy){
         int Hit = D20();
+        System.out.println("You rolled a/an " + Hit);
         if (Hit >= enemy.EnemyCA){
-            System.out.println("You hit the " + enemy.EnemyName + " for " + player.CharDMG + " damage!");
-            enemy.EnemyHitPoint -= player.CharDMG;
+            if (Hit == 20){
+                player.CharDMG = player.getDMGClassDnD();
+                System.out.println("You've rolled a critical hit! And hit the enemy for " + 2 * player.CharDMG + " damage!");
+                enemy.EnemyHitPoint -= 2 * player.CharDMG;
+            } else {
+                player.CharDMG = player.getDMGClassDnD();
+                System.out.println("You hit the " + enemy.EnemyName + " for " + player.CharDMG + " damage!");
+                enemy.EnemyHitPoint -= player.CharDMG;
+            }
+            
+        } else {
+            System.out.println("You missed the " + enemy.EnemyName);
         }
     }
 
-    public static void Flee(){
+    public static void Flee(Enemy enemy){
         int Flee = D20();
+        int EnemyReaction = D20();
+        if (Flee > EnemyReaction){
+            System.out.println("You managed to outrun the " + enemy.EnemyName);
+            CombatExit = true;
+        } else {
+            System.out.println("Your enemy is too fast for you to run from them");
+        }
     }
 
-    public static void Combat(){
+    public static void Combat(Scanner scanner){
         CombatExit = false;
         enemy = new Enemy();
         enemy.setID();
-        System.out.println("You are against a/an" + enemy);
-        Scanner scanner = new Scanner(System.in);
+        enemy.setDataMob();
+        System.out.println("You are against a/an " + enemy.EnemyName);
+        Sheet.setEnemyName();
         while(!CombatExit){
+            Sheet.setDataSheet();
             Sheet.CombatSheet();
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     Attack(enemy);
+                    Main.Wait(500);
+                    if(enemy.EnemyHitPoint <= 0){
+                        System.out.println("The " + enemy.EnemyName + " has been defeated!");
+                        CombatExit = true;
+                    }
                     break;
                 case 2:
                     System.out.println("Didn't do the Inventory, check for later update");
+                    Main.Wait(500);
+                    break;
+                case 3:
+                    CompendiumMob.AfficherMobCompendium(enemy.EnemyID);
+                    break;
+                case 4:
+                    Flee(enemy);
+                    Main.Wait(500);
+                    break;
                 default:
                     System.out.println("Invalid Choice! Try Again.");
+                    Main.Wait(500);
                     break;
             }
-
         }
-        scanner.close();
     }
+    
 
 }
