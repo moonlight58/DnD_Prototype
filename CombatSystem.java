@@ -55,16 +55,17 @@ public class CombatSystem{
         return d4;            
     }
 
-    public static void Attack(Enemy enemy){
-        int Hit = D20();
-        System.out.println("You rolled a/an " + Hit);
+    public static void Attack(Enemy enemy, Scanner scanner){
+        int D20 = D20();
+        System.out.println("You rolled a/an " + D20 + " + " + player.ModifierStrength);
+        int Hit = D20 + player.ModifierStrength;
+        System.out.println("For a total of " + Hit);
         if (Hit >= enemy.EnemyCA){
-            if (Hit == 20){
-                player.CharDMG = player.getDMGClassDnD();
+            player.CharDMG = player.getDMGClassDnD();
+            if (D20 == 20){
                 System.out.println("You've rolled a critical hit! And hit the enemy for " + 2 * player.CharDMG + " damage!");
                 enemy.EnemyHitPoint -= 2 * player.CharDMG;
             } else {
-                player.CharDMG = player.getDMGClassDnD();
                 System.out.println("You hit the " + enemy.EnemyName + " for " + player.CharDMG + " damage!");
                 enemy.EnemyHitPoint -= player.CharDMG;
             }
@@ -75,7 +76,7 @@ public class CombatSystem{
     }
 
     public static void Flee(Enemy enemy){
-        int Flee = D20();
+        int Flee = D20() + player.ModifierStrength;
         int EnemyReaction = D20();
         if (Flee > EnemyReaction){
             System.out.println("You managed to outrun the " + enemy.EnemyName);
@@ -94,11 +95,22 @@ public class CombatSystem{
         Sheet.setEnemyName();
         while(!CombatExit){
             Sheet.setDataSheet();
+            Main.Wait(400);
             Sheet.CombatSheet();
+            System.out.print("Choice : ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    Attack(enemy);
+                    System.out.println("What weapon do you use ?\n[1]" + player.CharWeapon);
+                    choice = scanner.nextInt();
+                    switch (choice) {
+                        case 1:
+                            Attack(enemy, scanner);
+                            break;
+                        default:
+                            System.out.println("Invalid choice, Try again!");
+                            break;
+                    }
                     Main.Wait(500);
                     if(enemy.EnemyHitPoint <= 0){
                         System.out.println("The " + enemy.EnemyName + " has been defeated!");
@@ -106,7 +118,7 @@ public class CombatSystem{
                     }
                     break;
                 case 2:
-                    System.out.println("Didn't do the Inventory, check for later update");
+                    Character.Inventory(scanner);
                     Main.Wait(500);
                     break;
                 case 3:

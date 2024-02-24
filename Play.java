@@ -15,7 +15,8 @@ public class Play {
     }
 
     public static void RandomEvent(int EventRandomNumber, Scanner scanner){
-        if (EventRandomNumber == 2){        
+        if (EventRandomNumber == 2){
+            Main.ScreenClean(); 
             CombatSystem.Combat(scanner);
         } else if (EventRandomNumber == 1){
             System.out.println("Something isn't normal, you don't feel safe in this room");
@@ -26,8 +27,8 @@ public class Play {
     
     
 
-    public static void play() {
-        Scanner scanner = new Scanner(System.in);
+    public static void play(Scanner scanner) {
+        PlayExit = false;
         while (!PlayExit) {
             System.out.println("[1]Move to another room [2]Inventory [3]Compendium [4]Option");
             int choice = scanner.nextInt();
@@ -37,7 +38,7 @@ public class Play {
                     Main.Wait(500);
                     break;
                 case 2:
-                    System.out.println("Didn't do the inventory thing, wait a bit please!");
+                    Character.Inventory(scanner);
                     Main.Wait(500);
                     break;
                 case 3:
@@ -61,7 +62,6 @@ public class Play {
                             switch (choice) {
                                 case 1:
                                     PlayExit = true;
-                                    Main.Exit = true;
                                     System.out.print("Exiting the game");
                                     for (int i = 0; i < 3; i++){
                                         Main.Wait(500);
@@ -84,8 +84,11 @@ public class Play {
                             Main.Wait(500);
                             break;
                     }
+                default:
+                    System.out.println("Invalid Choice! Try Again.");
+                    Main.Wait(500);
+                    break;
             }
         }
-        scanner.close();
     }
 }

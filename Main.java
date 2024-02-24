@@ -18,6 +18,7 @@ public class Main {
     static boolean Exit = false;
     public static void main(String[] args) {
         ScreenClean();
+        System.out.println(Enemy.EnemyNameHolder.length);
         System.out.println("Welcome to my game about Dungeons and Dragons! Please be indulgent that it's still under development...\n");
         Scanner scanner = new Scanner(System.in);
         while(!Exit){
@@ -37,15 +38,15 @@ public class Main {
                     DnDClass.setHPModifier();
                     Sheet.setDataSheet();
                     System.out.println("Welcome to Dungeons and Dragons, " + player.name + "! You're a " + player.CharDnDclass + ". Let's start the adventure!");
-                    Scanner sc = new Scanner(System.in);
                     while(!Exit){
                         System.out.println("[1]Begin the adventure [2]Character [3]More Information [4]Exit");
-                        int choice2 = sc.nextInt();
+                        int choice2 = scanner.nextInt();
                         switch(choice2){
                             case 1:
-                                Play.play();
+                                Play.play(scanner);
                                 break;
                             case 2:
+                                ScreenClean();
                                 Sheet.CharSheet();
                                 break;
                             case 3:
@@ -67,7 +68,6 @@ public class Main {
                         }
                         Wait(1000);
                     }
-                    sc.close();
                     break;
                 case 2:
                     System.out.println("The game doesn't have any information right now. Please wait for any update in the future");

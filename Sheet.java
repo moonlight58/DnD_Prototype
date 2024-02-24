@@ -53,28 +53,28 @@ public class Sheet {
     }    
 
     public static void setStrength(){
-        SheetStrength = String.format("%-4s", Character.Charisma);
-        SheetModifStrength = String.format("%-4s", Character.ModifierCharisma);
+        SheetStrength = String.format("%-4s", Character.Strength);
+        SheetModifStrength = String.format("%-4s", Character.ModifierStrength);
     }
 
     public static void setDexterity(){
-        SheetDexterity = String.format("%-4s", Character.Charisma);
-        SheetModifDexterity = String.format("%-4s", Character.ModifierCharisma);
+        SheetDexterity = String.format("%-4s", Character.Dexterity);
+        SheetModifDexterity = String.format("%-4s", Character.ModifierDexterity);
     }
     
     public static void setConstitution(){
-        SheetConstitution = String.format("%-4s", Character.Charisma);
-        SheetModifConstitution = String.format("%-4s", Character.ModifierCharisma);
+        SheetConstitution = String.format("%-4s", Character.Constitution);
+        SheetModifConstitution = String.format("%-4s", Character.ModifierConstitution);
     }
 
     public static void setIntelligence(){
-        SheetIntelligence = String.format("%-4s", Character.Charisma);
-        SheetModifIntelligence = String.format("%-4s", Character.ModifierCharisma);
+        SheetIntelligence = String.format("%-4s", Character.Intelligence);
+        SheetModifIntelligence = String.format("%-4s", Character.ModifierIntelligence);
     }
 
     public static void setWisdom(){
-        SheetWisdom = String.format("%-4s", Character.Charisma);
-        SheetModifWisdom = String.format("%-4s", Character.ModifierCharisma);
+        SheetWisdom = String.format("%-4s", Character.Wisdom);
+        SheetModifWisdom = String.format("%-4s", Character.ModifierWisdom);
     }
 
     public static void setCharisma(){
@@ -176,7 +176,7 @@ public class Sheet {
                 "|               AC                                     " + CACombatChar + "|               AC                                     " + CACombatEnemy + "|\n" + //
                 "|             WEAPON                                 WEAPON             |             WEAPON                                 WEAPON             |\n" + //
                 "|                                                                       |                                                                       |\n" + //
-                "|            [1]Attack                            [2]Inventory          |                                                                       |\n" + //
+                "|          [1]Attack (D20)                        [2]Inventory          |                                                                       |\n" + //
                 "|             [3]Info                                [4]Run             |                                                                       |\n" + //
                 "|                                                                       |                                                                       |\n" + //
                 "|===============================================================================================================================================|\n");

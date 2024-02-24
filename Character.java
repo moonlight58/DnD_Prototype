@@ -115,4 +115,8 @@ public class Character {
         }
         return CharDMG;
     }
+
+    public static void Inventory(Scanner scanner){
+        System.out.println("");
+    }
 }
