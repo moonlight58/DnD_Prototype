@@ -12,23 +12,23 @@ public class CompendiumMob{
         Main.Wait(500);
         System.out.println("\nVeuillez insérer le numéro associé au monstre du compendium :");
         int token = scanner.nextInt();
-        AfficherMobCompendium(token - 1);
+        AfficherMobCompendium(token - 1, scanner);
     }
     
-    public static void AfficherMobCompendium(int MobCompendium) {
-        if (MobCompendium <= Enemy.EnemyNameHolder.length && MobCompendium >= 0){
-            System.out.println("[" + (MobCompendium + 1) + "] " + Enemy.EnemyNameHolder[MobCompendium]);
-        } else if(MobCompendium == (Enemy.EnemyNameHolder.length +1)) {
-            CompendiumExit = true;
+    public static void AfficherMobCompendium(int MobCompendium, Scanner scanner) {
+        if (MobCompendium < Enemy.EnemyNameHolder.length && MobCompendium >= 0){
+            System.out.println("[" + (MobCompendium + 1) + "] " + Enemy.EnemyNameHolder[MobCompendium]+"\n");
+        } else if (MobCompendium == Enemy.EnemyNameHolder.length){
             System.out.print("Exiting the compendium");
             for (int i = 0; i < 3; i++){
+                System.out.print('.');
                 Main.Wait(500);
-                System.out.print(".");
             }
             System.out.println("");
-            Main.Wait(500);
-        } else if(MobCompendium > Enemy.EnemyNameHolder.length+1 || MobCompendium < 0){
-            System.out.println("Invalid Choice! Try Again.");
+            CompendiumExit = true;
+        } else {
+            System.out.println("Please enter a valid number within the range.");
+            Compendium(scanner);
         }
     }
 }

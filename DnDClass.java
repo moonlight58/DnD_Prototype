@@ -12,6 +12,7 @@ public class DnDClass{
                 Character.Wisdom = 10;
                 Character.Charisma = 12;
                 Character.CharWeapon = "GreatAxe"; //1d12 slashing
+                Character.CharDiceDMG = "1d12";
                 break;
             case "Bard":
                 Character.HitPoint = 8;
@@ -22,6 +23,7 @@ public class DnDClass{
                 Character.Wisdom = 13;
                 Character.Charisma = 16;
                 Character.CharWeapon = "Rapier"; // 1d8 piercing
+                Character.CharDiceDMG = "1d8";
                 break;
             case "Cleric":
                 Character.HitPoint = 8;
@@ -32,6 +34,7 @@ public class DnDClass{
                 Character.Wisdom = 16;
                 Character.Charisma = 12;
                 Character.CharWeapon = "Warhammer"; //1d8 bludgeoning
+                Character.CharDiceDMG = "1d8";
                 break;
             case "Druid":
                 Character.HitPoint = 8;
@@ -42,6 +45,7 @@ public class DnDClass{
                 Character.Wisdom = 16;
                 Character.Charisma = 10;
                 Character.CharWeapon = "Scimitar"; //1d6 slashing
+                Character.CharDiceDMG = "1d6";
                 break;
             case "Fighter":
                 Character.HitPoint = 10;
@@ -52,6 +56,7 @@ public class DnDClass{
                 Character.Wisdom = 12;
                 Character.Charisma = 10;
                 Character.CharWeapon = "Glaive"; //1d10 slashing
+                Character.CharDiceDMG = "1d10";
                 break;
             case "Monk":
                 Character.HitPoint = 8;
@@ -62,6 +67,7 @@ public class DnDClass{
                 Character.Wisdom = 16;
                 Character.Charisma = 8;
                 Character.CharWeapon = "Shortsword"; //1d6 piercing
+                Character.CharDiceDMG = "1d6";
                 break;
             case "Paladin":
                 Character.HitPoint = 10;
@@ -72,6 +78,7 @@ public class DnDClass{
                 Character.Wisdom = 13;
                 Character.Charisma = 14;
                 Character.CharWeapon = "Maul"; //2d6 bludgeoning
+                Character.CharDiceDMG = "2d6";
                 break;
             case "Ranger":
                 Character.HitPoint = 10;
@@ -82,6 +89,7 @@ public class DnDClass{
                 Character.Wisdom = 15;
                 Character.Charisma = 10;
                 Character.CharWeapon = "Shortsword"; //1d6 piercing
+                Character.CharDiceDMG = "1d6";
                 break;
             case "Rogue":
                 Character.HitPoint = 8;
@@ -92,6 +100,7 @@ public class DnDClass{
                 Character.Wisdom = 14;
                 Character.Charisma = 15;
                 Character.CharWeapon = "Rapier"; //1d8 piercing
+                Character.CharDiceDMG = "1d8";
                 break;
             case "Sorcerer":
                 Character.HitPoint = 6;
@@ -102,6 +111,7 @@ public class DnDClass{
                 Character.Wisdom = 12;
                 Character.Charisma = 16;
                 Character.CharWeapon = "Greatclub"; //1d8 bludgeoning
+                Character.CharDiceDMG = "1d8";
                 break;
             case "Warlock":
                 Character.HitPoint = 8;
@@ -112,6 +122,7 @@ public class DnDClass{
                 Character.Wisdom = 13;
                 Character.Charisma = 16;
                 Character.CharWeapon = "Handaxe"; //1d6 slashing
+                Character.CharDiceDMG = "1d6";
                 break;
             case "Wizard":
                 Character.HitPoint = 6;
@@ -122,6 +133,7 @@ public class DnDClass{
                 Character.Wisdom = 14;
                 Character.Charisma = 10;
                 Character.CharWeapon = "Quarterstaff"; //1d6 bludgeoning or 1d8bludgeoning (2 hands)
+                Character.CharDiceDMG = "1d8";
                 break;
             default:
                 System.out.println("HUH???!!! A class? nuh uh!");

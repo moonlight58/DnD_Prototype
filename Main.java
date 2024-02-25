@@ -15,10 +15,20 @@ public class Main {
         }
     }
 
+    public static void Exit(){
+        Exit = true;
+        System.out.print("Exiting the game");
+        for (int i = 0; i < 3; i++){
+            Main.Wait(500);
+            System.out.print(".");
+        }
+        Wait(500);
+        ScreenClean();
+    }
+
     static boolean Exit = false;
     public static void main(String[] args) {
         ScreenClean();
-        System.out.println(Enemy.EnemyNameHolder.length);
         System.out.println("Welcome to my game about Dungeons and Dragons! Please be indulgent that it's still under development...\n");
         Scanner scanner = new Scanner(System.in);
         while(!Exit){
@@ -53,14 +63,7 @@ public class Main {
                                 System.out.println("More information on the game will be available soon!");
                                 break;
                             case 4:
-                                Main.Exit = true;
-                                System.out.print("Exiting the game");
-                                for (int i = 0; i < 3; i++){
-                                    Main.Wait(500);
-                                    System.out.print(".");
-                                }
-                                Wait(500);
-                                ScreenClean();
+                                Exit();
                                 break;
                             default:
                                 System.out.println("Invalid Choice! Try Again.");
@@ -74,14 +77,7 @@ public class Main {
                     Wait(500);
                     break;
                 case 3:
-                    Exit = true;
-                    System.out.print("Exiting the game");
-                    for (int i = 0; i < 3; i++){
-                        Main.Wait(500);
-                        System.out.print(".");
-                    }
-                    Wait(500);
-                    ScreenClean();
+                    Exit();
                     break;
                 default:
                     System.out.println("Invalid Choice! Please try again.");

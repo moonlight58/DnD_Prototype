@@ -61,7 +61,8 @@ public class CombatSystem{
         int Hit = D20 + player.ModifierStrength;
         System.out.println("For a total of " + Hit);
         if (Hit >= enemy.EnemyCA){
-            player.CharDMG = player.getDMGClassDnD();
+            player.CharDMG = player.getDMGClassDnD(player.CharDnDclass);
+            System.out.println("player.CharDMG : " + player.CharDMG);
             if (D20 == 20){
                 System.out.println("You've rolled a critical hit! And hit the enemy for " + 2 * player.CharDMG + " damage!");
                 enemy.EnemyHitPoint -= 2 * player.CharDMG;
@@ -99,17 +100,24 @@ public class CombatSystem{
             Sheet.CombatSheet();
             System.out.print("Choice : ");
             int choice = scanner.nextInt();
+            Main.Wait(100);
             switch (choice) {
                 case 1:
-                    System.out.println("What weapon do you use ?\n[1]" + player.CharWeapon);
-                    choice = scanner.nextInt();
-                    switch (choice) {
-                        case 1:
-                            Attack(enemy, scanner);
-                            break;
-                        default:
-                            System.out.println("Invalid choice, Try again!");
-                            break;
+                    System.out.println("What weapon do you use ?\n[1]" + player.CharWeapon + " (" + player.CharDiceDMG + ")");
+                    boolean validChoice = false;
+                    while (!validChoice) {
+                        choice = scanner.nextInt();
+                        Main.Wait(100);
+                        switch (choice) {
+                            case 1:
+                                validChoice = true;
+                                Attack(enemy, scanner);
+                                break;
+                            default:
+                                System.out.println("Invalid choice, Try again!");
+                                System.out.print("Choice : ");
+                                break;
+                        }
                     }
                     Main.Wait(500);
                     if(enemy.EnemyHitPoint <= 0){
@@ -122,7 +130,7 @@ public class CombatSystem{
                     Main.Wait(500);
                     break;
                 case 3:
-                    CompendiumMob.AfficherMobCompendium(enemy.EnemyID);
+                    CompendiumMob.AfficherMobCompendium(enemy.EnemyID, scanner);
                     break;
                 case 4:
                     Flee(enemy);
