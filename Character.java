@@ -97,7 +97,7 @@ public class Character {
             System.out.print("Your choice : ");
             int n = scanner.nextInt();
             if (n-1 < Race.HolderRace.length && n >= 0){
-                String CharRace = Race.HolderRace[n-1];
+                Character.CharRace = Race.HolderRace[n-1];
                 Main.Wait(500);
                 System.out.println(CharRace + " has been selected.");
                 Main.Wait(500);

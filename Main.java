@@ -47,7 +47,7 @@ public class Main {
                     DnDClass.setModifier();
                     DnDClass.setHPModifier();
                     Sheet.setDataSheet();
-                    System.out.println("Welcome to Dungeons and Dragons, " + player.name + "! You're a " + player.CharDnDclass + ". Let's start the adventure!");
+                    System.out.println("Welcome to Dungeons and Dragons, " + player.name + "! You're a " + player.CharDnDclass + "/" + player.CharRace + ". Let's start the adventure!");
                     while(!Exit){
                         System.out.println("[1]Begin the adventure [2]Character [3]More Information [4]Exit");
                         int choice2 = scanner.nextInt();
